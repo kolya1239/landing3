@@ -1,0 +1,77 @@
+// USER VARIABLES SECTION
+
+$accent: orange // Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #282828 // Text Color
+$lineheight: 1.65 // Document Line Height
+$letterspacing: 0.04em //Letter space
+$userfont: Exo // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl, $ftype)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format($ftype)
+
+@import url(https://fonts.googleapis.com/css?family=Exo:100,regular,500)
+
+// GENERAL CSS SETTINGS
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	letter-spacing: $letterspacing
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+
+/* Smartphones ----------- */
+@media only screen and (min-width : 320px)
+	html
+		font-size: 6px
+
+/* iPads ----------- */
+@media only screen and (min-width: 768px)
+	html
+		font-size: 10px
+
+/* PC and notebooks ----------- */
+@media only screen  and (min-width: 1224px) 
+	html
+		font-size: 16px
+
+/* Big screens */
+@media only screen  and (min-width: 1824px) 
+	html
+		font-size: 24px
